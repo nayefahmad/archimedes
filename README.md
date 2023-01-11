@@ -10,7 +10,16 @@
   - pytest 
   - coverage report in repo 
 - Repo structure 
-  - x 
+  - `models.py` for ORM classes, `pipelines.py` for data access and pipelines
+    - OR: use `data_access/` dir? 
+  - `data/` for example csv data 
+  - `archimedes/` for analysis code 
+    - `archimedes/forecasting/`
+    - `archimedes/plotting/`
+    - `archimedes/preprocessing/`
+  - `test/` for tests 
+    - `test_archimedes/` for unit tests 
+    - `test_integration/` for integration tests? 
 
 
 ### Review of Component Monitoring project architecture specifications 
