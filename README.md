@@ -4,6 +4,7 @@
 
 - Database 
   - sqlite/postgres/duckDB database hosted on a server 
+    - see [test db on bit.io](https://bit.io/nayefahmad/test)
 - CI/CD 
   - Github actions to run tests, and to update db regularly? 
 - Testing 
@@ -24,7 +25,7 @@
 
 ### Review of Component Monitoring project architecture specifications 
 
-- Code and containers on GitLab 
+- Code and container images on GitLab 
 - Server has postgresql DB on port 5433. URL: `jdbc:postgresql://<address>:5433/cm_db`
 
 
