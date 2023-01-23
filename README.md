@@ -33,7 +33,7 @@
 - STL decomposition 
 - Comparison with forecast 
 - Outlier detection 
-- Correlation with walking data? 
+- Correlation with walking data? Read in data from weather API?
 
 
 ## References 
