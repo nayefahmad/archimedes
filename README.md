@@ -7,6 +7,8 @@
     - see [test db on bit.io](https://bit.io/nayefahmad/test)
 - CI/CD 
   - Github actions to run tests, and to update db regularly? 
+- Serving/inference
+  - [banana.dev](banana.dev) for ML inference? Works with docker - see [here](https://docs.banana.dev/banana-docs/core-concepts/inference-server/serverless-framework)
 - Testing 
   - pytest 
   - coverage report in repo 
