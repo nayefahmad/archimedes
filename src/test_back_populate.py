@@ -9,6 +9,13 @@ Reference:
     shopping time, etc., into a “user” object. The user object could then be equipped
     with functions that allow it to be part of a customer behavior simulation for
     predictive modeling."
+
+- https://stackoverflow.com/questions/27647066/what-is-the-relationship-function-used-for-in-sqlalchemy  # noqa
+    - Declaring relationships with `relationship()` does not affect the database side of
+    things - that is handled using foreign keys. `relationship` is for convenience when
+    working on the "O" side of ORM - i.e. in Python, when using objects. It's because of
+    `relationship` that we are able to do `user1.purchases` below, for example.
+
 """
 
 
@@ -53,10 +60,18 @@ if __name__ == "__main__":
     session = Session()
 
     user1 = User(name="Alice")
+    # `relationship()` allows us to refer to attributes that are handled using foreign
+    # keys on the db side:
+    assert [purchase.amount for purchase in user1.purchases] == []
+
     user2 = User(name="Bob")
-    purchase1 = Purchase(item_name="laptop", amount="1000", user=user1)
-    purchase2 = Purchase(item_name="mouse", amount="10", user=user1)
-    purchase3 = Purchase(item_name="house", amount="1000000", user=user2)
+    purchase1 = Purchase(item_name="laptop", amount=1000, user=user1)
+    purchase2 = Purchase(item_name="mouse", amount=10, user=user1)
+    purchase3 = Purchase(item_name="house", amount=1000000, user=user2)
+
+    # cross-referencing users and purchases using `relationship` means that the
+    # purchases above are now associated with user1.
+    assert [purchase.amount for purchase in user1.purchases] == [1000, 10]
 
     session.add(user1)
     session.add(user2)
